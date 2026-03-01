@@ -5,6 +5,6 @@ listItems.forEach((item, index) => {
 });
 
 function showStudentName() {
-    const button = document.getElementById('actionButton');
+    const button = document.getElementById('action-button');
     button.innerText = `Іванів В.`;
 }
