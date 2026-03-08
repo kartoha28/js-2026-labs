@@ -20,7 +20,7 @@ const car1 = { brand: "Audi", year: 2020 };
 const car2 = { brand: "Audi", year: 2020 };
 
 const areObjectsEqual = (car1.brand === car2.brand) && (car1.year === car2.year);
-console.log("\n1.2 Порівняння об'єктів car1 та car2:");
+console.log("\n1.2 Порівняння car1 та car2:");
 console.log("Чи однакові вони?", areObjectsEqual);
 
 
@@ -30,16 +30,16 @@ function isInRange(number, min, max) {
 }
 
 const myNum = 15;
-console.log(`\n2.1 Чи входить число ${myNum} у діапазон від 10 до 20?`);
+console.log(`\n2.1 Чи входить ${myNum} у діапазон 10-20?`);
 console.log(isInRange(myNum, 10, 20));
 
 
 // 2.2
 let isTaskCompleted = false;
-console.log("\n2.2 Початковий стан isTaskCompleted:", isTaskCompleted);
+console.log("\n2.2 Початковий стан:", isTaskCompleted);
 
 isTaskCompleted = !isTaskCompleted;
-console.log("Стан після використання NOT (!):", isTaskCompleted);
+console.log("Стан після NOT:", isTaskCompleted);
 
 
 // 3.1 (if)
