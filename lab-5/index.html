@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Завдання 1: Лампочка</h1>
+<div class="section">
+    <div class="controls">
+        <select id="bulbType">
+            <option value="regular">Звичайна</option>
+            <option value="energy">Енергозберігаюча</option>
+            <option value="led">Світлодіодна</option>
+        </select>
+        <button id="toggleBtn">Включити</button>
+        <button id="brightnessBtn">Змінити яскравість</button>
+    </div>
+    <div class="bulb-container">
+        <div id="bulb" class="bulb off regular"></div>
+    </div>
+</div>
+
+<h1>Завдання 2: Світлофор</h1>
+<div class="section">
+    <div class="traffic-light">
+        <div id="redLight" class="light red dim"></div>
+        <div id="yellowLight" class="light yellow dim"></div>
+        <div id="greenLight" class="light green dim"></div>
+    </div>
+    <div class="controls">
+        <p>Стан: <span id="tfStateText">Вимкнено</span></p>
+        <button id="tfSetTimeBtn">Змінити тривалість</button>
+        <button id="tfNextBtn">Наступний стан</button>
+        <button id="tfStartBtn">Старт/Стоп</button>
+    </div>
+</div>
+
+<h1>Завдання 3: Дата та час</h1>
+<div class="section">
+    <h2>Цифровий годинник</h2>
+    <div id="clock" class="clock">00<span id="colon">:</span>00:00</div>
+
+    <h2>Таймер зворотного відліку</h2>
+    <input type="datetime-local" id="timerInput">
+    <button id="startTimerBtn">Запустити таймер</button>
+    <p id="timerDisplay">Очікування...</p>
+
+    <h2>Календар</h2>
+    <input type="month" id="calendarInput">
+
+    <h2>До дня народження</h2>
+    <input type="date" id="bdayInput">
+    <button id="calcBdayBtn">Порахувати</button>
+    <p id="bdayDisplay">Введіть дату...</p>
+</div>
+
+<h1>Завдання 4: Map, Set, WeakMap, WeakSet</h1>
+<div class="section">
+    <div class="controls">
+        <input type="text" id="pId" placeholder="ID">
+        <input type="text" id="pName" placeholder="Назва">
+        <input type="number" id="pPrice" placeholder="Ціна">
+        <input type="number" id="pQty" placeholder="Кількість">
+    </div>
+    <div class="controls">
+        <button id="addProdBtn">Додати</button>
+        <button id="delProdBtn">Видалити (по ID)</button>
+        <button id="updProdBtn">Оновити</button>
+        <button id="searchProdBtn">Пошук (по Назві)</button>
+        <button id="orderProdBtn">Замовити (по ID)</button>
+    </div>
+    <textarea id="storeOutput" rows="10" cols="50" readonly></textarea>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

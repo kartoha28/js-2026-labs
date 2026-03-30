@@ -1,0 +1,99 @@
+body {
+    font-family: sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.section {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+.controls {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* ЗМІНЕНО: Новий контейнер з темним фоном */
+.bulb-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background-color: #777777; /* Цей фон видно, коли тьмяно або вимкнено */
+    border: 3px solid #bbb; /* Обідок тепер тут */
+    overflow: hidden; /* Щоб лампочка не виходила за межі */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bulb {
+    width: 100%; /* Заповнює контейнер */
+    height: 100%;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    /* margin, border видалено звідси */
+}
+
+/* ЗМІНЕНО: Стан вимкнено робить світло прозорим */
+.bulb.off {
+    background-color: transparent !important; /* Робить 'світло' невидимим */
+    box-shadow: none !important;
+    opacity: 1 !important; /* Скидаємо opacity при вимкненні */
+}
+
+/* Типи лампочок (стан увімкнено) */
+.bulb.regular {
+    background-color: #ffda6b;
+    box-shadow: 0 0 40px #ffda6b;
+}
+
+.bulb.energy {
+    background-color: #c3ffff;
+    box-shadow: 0 0 30px #ccffff;
+}
+
+.bulb.led {
+    background-color: #f0faff; /* Світло, але не чисто біле */
+    box-shadow: 0 0 60px #ffffff;
+}
+
+/* Завдання 2: Світлофор */
+.traffic-light {
+    width: 60px;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 auto 15px auto;
+}
+.light {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.red { background-color: red; }
+.yellow { background-color: yellow; }
+.green { background-color: lime; }
+.dim { opacity: 0.2; }
+
+/* Завдання 3: Годинник */
+.clock {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.blink { visibility: hidden; }
+
+/* Завдання 4 */
+textarea {
+    width: 100%;
+    font-family: monospace;
+    resize: vertical;
+}
