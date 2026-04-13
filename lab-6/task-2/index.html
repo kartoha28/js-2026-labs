@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛР 6 - To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="todo-container">
+    <h1>Мої завдання</h1>
+
+    <form id="todo-form">
+        <input type="text" id="task-input" required minlength="3" placeholder="Що потрібно зробити?">
+        <button type="submit" class="primary-btn">Додати</button>
+    </form>
+
+    <div class="sort-controls">
+        <span class="sort-label">Сортувати за:</span>
+        <button class="sort-btn active" data-sort="createdAt">Датою додавання</button>
+        <button class="sort-btn" data-sort="completed">Станом виконання</button>
+        <button class="sort-btn" data-sort="updatedAt">Датою оновлення</button>
+    </div>
+
+    <ul id="task-list">
+    </ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

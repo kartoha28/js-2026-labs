@@ -1,0 +1,137 @@
+:root {
+    --primary: #007bff;
+    --success: #28a745;
+    --danger: #dc3545;
+    --bg: #f4f4f9;
+    --text: #333;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.todo-container {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 { text-align: center; margin-top: 0; }
+
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+.primary-btn { background-color: var(--primary); color: white; }
+.primary-btn:hover { background-color: #0056b3; }
+
+.sort-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.sort-label { font-weight: bold; font-size: 14px;}
+
+.sort-btn { background-color: #e9ecef; }
+.sort-btn.active { background-color: var(--primary); color: white; }
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Стилі для самого завдання */
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    gap: 15px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.task-item.fade-out {
+    animation: fadeOut 0.3s ease-in forwards;
+}
+
+/* Індикатор виконання (кружечок) */
+.status-indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: 0.2s;
+}
+
+.task-item.completed .status-indicator {
+    background-color: var(--success);
+    border-color: var(--success);
+}
+
+.task-text {
+    flex-grow: 1;
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+/* Якщо натиснути на текст для редагування */
+.task-text[contenteditable="true"]:focus {
+    background-color: #f8f9fa;
+    outline: 1px solid var(--primary);
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.delete-btn {
+    background-color: var(--danger);
+    color: white;
+    padding: 6px 12px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.9); }
+}
