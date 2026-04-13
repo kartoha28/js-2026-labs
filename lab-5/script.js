@@ -12,17 +12,19 @@ function resetBulbTimer() {
         inactivityTimer = setTimeout(() => {
             bulb.classList.add('off');
             toggleBtn.textContent = 'Включити';
-        }, 5 * 1000); // 5 секунд
+        }, 10 * 1000); // 10 секунд
     }
 }
 
 //кнопка включення
-toggleBtn.addEventListener('click', () => {
+toggleBtn.addEventListener('click', foo);
+
+const foo = function onOffbulbClick(){
     bulb.classList.toggle('off');
     toggleBtn.textContent = bulb.classList.contains('off') ? 'Включити' : 'Виключити';
     resetBulbTimer();
     bulb.style.opacity = 1;
-});
+};
 
 //зміна лампочки
 typeSelect.addEventListener('change', (e) => {
