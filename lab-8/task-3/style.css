@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.kanban-board {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    align-items: flex-start;
+}
+
+.column {
+    background-color: #f4f5f7;
+    border-radius: 4px;
+    width: 33.333%;
+    display: flex;
+    flex-direction: column;
+}
+
+.column-header {
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.bg-blue { background-color: #4A90E2; }
+.bg-orange { background-color: #F5A623; }
+.bg-green { background-color: #2ECC71; }
+
+.column-content {
+    padding: 10px;
+    min-height: 150px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background-color 0.2s;
+}
+
+.item {
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    cursor: grab;
+    border: 1px solid #e2e4e6;
+    color: #333;
+}
+
+.item:active {
+    cursor: grabbing;
+}
+
+.item.dragging {
+    opacity: 0.5;
+    background-color: #e0e0e0;
+}
+
+.column-content.drag-over {
+    background-color: #e2e4e6;
+}
+
+.column-content::-webkit-scrollbar {
+    width: 8px;
+}
+.column-content::-webkit-scrollbar-track {
+    background: #f4f5f7;
+}
+.column-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}

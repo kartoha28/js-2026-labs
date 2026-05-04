@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Pair Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <aside class="settings-panel">
+        <h2>Налаштування гри</h2>
+
+        <label>Гравці:</label>
+        <select id="players-count">
+            <option value="1">1 Гравець</option>
+            <option value="2">2 Гравці</option>
+        </select>
+
+        <div id="player-names">
+            <input type="text" id="p1-name" value="Гравець 1" placeholder="Ім'я гравця 1">
+            <input type="text" id="p2-name" value="Гравець 2" placeholder="Ім'я гравця 2" class="hidden">
+        </div>
+
+        <label>Розмір поля:</label>
+        <select id="grid-size">
+            <option value="16">4 x 4</option>
+            <option value="24">4 x 6</option>
+            <option value="36">4 x 8</option>
+        </select>
+
+        <label>Складність:</label>
+        <select id="difficulty">
+            <option value="easy" selected>Easy (3 хв)</option>
+            <option value="normal">Normal (2 хв)</option>
+            <option value="hard">Hard (1 хв)</option>
+        </select>
+
+        <label>Кількість раундів:</label>
+        <input type="number" id="rounds-count" value="1" min="1" max="10">
+
+        <div class="buttons">
+            <button id="btn-start">Розпочати гру</button>
+            <button id="btn-restart" disabled>Рестарт</button>
+            <button id="btn-reset">Скинути налаштування</button>
+        </div>
+    </aside>
+
+    <main class="game-area">
+        <header class="game-stats">
+            <div class="stat-box">Раунд: <span id="ui-round">0 / 0</span></div>
+            <div class="stat-box">Хід гравця: <span id="ui-current-player">-</span></div>
+            <div class="stat-box">Таймер: <span id="ui-timer">00:00</span></div>
+        </header>
+
+        <div class="player-stats-board">
+            <div id="p1-stats">Гравець 1 - Ходів: 0</div>
+            <div id="p2-stats" class="hidden">Гравець 2 - Ходів: 0</div>
+        </div>
+
+        <div id="game-board" class="board">
+        </div>
+    </main>
+</div>
+
+<div id="modal" class="modal hidden">
+    <div class="modal-content">
+        <h2 id="modal-title">Результати</h2>
+        <div id="modal-body"></div>
+        <button id="btn-next-action">Далі</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
