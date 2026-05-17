@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Finder - Lab 10</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Authentication View -->
+<div id="auth-view" class="container">
+    <div class="tabs">
+        <button type="button" class="tab-btn active" id="btn-signup">Signup</button>
+        <button type="button" class="tab-btn" id="btn-login">Login</button>
+    </div>
+
+    <!-- Registration Form (from lab 9) -->
+    <form id="signup-form" class="form-content active" novalidate>
+        <h2>Create an account</h2>
+        <div class="row">
+            <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" placeholder="Enter first name">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" placeholder="Enter last name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="regPassword">Password</label>
+            <input type="password" id="regPassword" placeholder="Enter password">
+        </div>
+        <div class="form-message" id="signup-success"></div>
+        <button type="submit" class="submit-btn">Signup</button>
+    </form>
+
+    <!-- Login Form (from lab 9) -->
+    <form id="login-form" class="form-content" novalidate>
+        <h2>Login here</h2>
+        <div class="form-group">
+            <label for="username">Username (Email)</label>
+            <input type="text" id="username" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="Enter password">
+        </div>
+        <div class="form-message" id="login-error"></div>
+        <button type="submit" class="submit-btn">Login</button>
+    </form>
+</div>
+
+<!-- Main Application View -->
+<div id="app-view" class="app-layout" style="display: none;">
+    
+    <header class="top-bar">
+        <div class="logo">FriendFinder</div>
+        <div class="user-controls">
+            <span id="current-user-email"></span>
+            <button id="btn-logout" class="btn-logout">Logout</button>
+        </div>
+    </header>
+
+    <div class="app-body">
+        <aside class="sidebar">
+            <div class="filter-section">
+                <h3>SORTING</h3>
+                <div class="sort-group">
+                    <label>SORT BY AGE:</label>
+                    <div class="sort-buttons">
+                        <button class="sort-btn" data-sort="age" data-dir="asc">⭣ A</button>
+                        <button class="sort-btn" data-sort="age" data-dir="desc">⭡ D</button>
+                    </div>
+                </div>
+                <div class="sort-group">
+                    <label>SORT BY NAME:</label>
+                    <div class="sort-buttons">
+                        <button class="sort-btn" data-sort="name" data-dir="asc">⭣ A-Z</button>
+                        <button class="sort-btn" data-sort="name" data-dir="desc">⭡ Z-A</button>
+                    </div>
+                </div>
+                <div class="sort-group">
+                    <label>SORT BY REG DATE:</label>
+                    <div class="sort-buttons">
+                        <button class="sort-btn" data-sort="registered" data-dir="asc">⭣ A</button>
+                        <button class="sort-btn" data-sort="registered" data-dir="desc">⭡ D</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>FILTERS</h3>
+                <div class="filter-group">
+                    <input type="text" id="search-name" placeholder="Search by name...">
+                    <button id="btn-search-name" class="btn-filter" style="display: none;">FILTER BY NAME</button>
+                </div>
+                
+                <div class="filter-group">
+                    <input type="number" id="filter-age" placeholder="Exact age...">
+                </div>
+
+                <div class="filter-group">
+                    <input type="text" id="filter-location" placeholder="Search location (City)...">
+                </div>
+
+                <div class="filter-group">
+                    <input type="text" id="filter-email" placeholder="Search email...">
+                </div>
+
+                <div class="filter-group sex-filter">
+                    <label><input type="radio" name="filter-sex" value="male"> Male</label>
+                    <label><input type="radio" name="filter-sex" value="female"> Female</label>
+                    <label><input type="radio" name="filter-sex" value="all" checked> All</label>
+                </div>
+                
+                <button id="btn-apply-filters" class="btn-filter" style="margin-bottom: 5px;">APPLY FILTERS</button>
+                <button id="btn-reset-filters" class="btn-reset">RESET</button>
+            </div>
+            
+            <div class="filter-section">
+                <h3>SAVED FRIENDS</h3>
+                <button id="btn-toggle-saved" class="btn-filter">SHOW SAVED ONLY</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div id="loading-indicator" class="loading" style="display: none;">Loading users...</div>
+            <div id="error-message" class="error-msg" style="display: none;"></div>
+            
+            <div id="users-grid" class="users-grid">
+                <!-- User cards will be injected here -->
+            </div>
+            
+            <div class="pagination-controls">
+                <div id="pagination-pages" class="pages-list"></div>
+                <div id="infinite-scroll-trigger">Scroll for more...</div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
